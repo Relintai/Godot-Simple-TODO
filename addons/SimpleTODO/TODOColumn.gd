@@ -27,9 +27,9 @@ var mirror_counter
 func set_minimized(val):
 	minimized = val
 
-	minimize_button.icon = get_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
+	minimize_button.icon = get_theme_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
 	if mirror_header:
-		mirror_header.get_node("Minimize").icon = get_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
+		mirror_header.get_node("Header/Minimize").icon = get_theme_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
 	
 	top_separator.visible = !val
 	scroll_container.visible = !val
@@ -41,15 +41,15 @@ signal delete
 func _ready() -> void:
 	set_process(false)
 	item_placement_holder = main.item_placement_holder
-	delete_button.icon = get_icon("Remove", "EditorIcons")
+	delete_button.icon = get_theme_icon("Remove", "EditorIcons")
 	counter.rect_min_size.x = delete_button.get_minimum_size().x
 	set_minimized(false)
 	
 	mirror_header = PanelContainer.new()
 	main.column_mirror.add_child(mirror_header)
-	mirror_header.add_stylebox_override("panel", get_stylebox("panel"))
+	mirror_header.add_theme_stylebox_override("panel", get_theme_stylebox("panel"))
 	mirror_header.add_child(preload("res://addons/SimpleTODO/ColumnHeader.tscn").instance())
-	mirror_header.get_child(0).get_node("Minimize").icon = get_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
+	mirror_header.get_child(0).get_node("Minimize").icon = get_theme_icon("ArrowDown" if minimized else "ArrowUp", "EditorIcons")
 	mirror_header.get_child(0).get_node("Name").editable = false
 	mirror_counter = mirror_header.get_child(0).get_node("Counter")
 	main.connect_scrollbar(self, "update_mirror")

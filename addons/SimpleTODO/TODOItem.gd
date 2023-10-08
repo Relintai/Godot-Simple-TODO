@@ -20,7 +20,7 @@ func _ready() -> void:
 	item_placement_holder = main.item_placement_holder
 	next_parent_column = parent_column
 
-	get_node("Button").icon = get_icon("Remove", "EditorIcons")
+	get_node("Button").icon = get_theme_icon("Remove", "EditorIcons")
 	call_deferred("text_changed")
 
 func delete_pressed() -> void:

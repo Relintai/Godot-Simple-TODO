@@ -10,7 +10,7 @@ func get_plugin_name():
 	return "TODO"
 
 func get_plugin_icon():
-	return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
+	return get_editor_interface().get_base_control().get_theme_icon("Node", "EditorIcons")
 
 func has_main_screen() -> bool:
 	return true
