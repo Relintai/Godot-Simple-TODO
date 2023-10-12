@@ -22,7 +22,7 @@ func _enter_tree():
 	
 	get_editor_interface().get_editor_viewport().add_child(todo_screen)
 	load_data()
-	print("TODO loaded")
+	#print("TODO loaded")
 
 func _ready() -> void:
 	set_process_input(false)
